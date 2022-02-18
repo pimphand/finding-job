@@ -304,6 +304,7 @@ class Login extends StatelessWidget {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFBFBFB),
       body: SafeArea(
         child: Container(
