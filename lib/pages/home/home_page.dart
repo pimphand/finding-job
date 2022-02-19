@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job/widget/product.dart';
+import 'package:job/widget/recentPost.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -36,45 +37,19 @@ class HomePage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20),
       margin: EdgeInsets.only(top: 30),
-      child: Column(
+      child: Row(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 350,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                child: Container(
-                  height: 54,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                  child: TextFormField(
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal,
-                      color: Color(0xff6A6A6A),
-                    ),
-                    decoration: InputDecoration.collapsed(
-                      hintText: 'Search here...',
-                      hintTextDirection: TextDirection.ltr,
-                      hintStyle: TextStyle(
-                        fontSize: 18,
-                        color: Color(0xff6A6A6A),
-                      ),
-                    ),
-                  ),
-                ),
+                contentPadding: EdgeInsets.symmetric(horizontal: 20),
+                suffixIcon: Icon(Icons.search),
               ),
-              SizedBox(
-                width: 15,
-              ),
-              Image.asset(
-                'assets/go_button.png',
-                width: 54,
-              ),
-            ],
+            ),
           ),
         ],
       ),
@@ -127,6 +102,66 @@ class HomePage extends StatelessWidget {
             Row(
               children: [
                 Product(),
+                Product(),
+                Product(),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget titleRecent() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.only(
+        top: 20,
+        left: 20,
+        right: 20,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Recent Post",
+            style: TextStyle(
+              fontSize: 23,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            "Show All",
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
+              color: Color(0xff6A6A6A),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget recentPosts() {
+    return Container(
+      margin: EdgeInsets.only(
+        top: 20,
+      ),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Row(
+          children: [
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              children: [
+                RecentPost(),
+                RecentPost(),
+                RecentPost(),
+                RecentPost(),
               ],
             )
           ],
@@ -142,6 +177,8 @@ class HomePage extends StatelessWidget {
         search(),
         productTitle(),
         productWidget(),
+        titleRecent(),
+        recentPosts(),
       ],
     );
   }

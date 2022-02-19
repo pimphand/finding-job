@@ -306,22 +306,24 @@ class Login extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFBFBFB),
-      body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 30,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              header(),
-              emailInput(),
-              passwordInput(),
-              button(),
-              text1(),
-              loginSocialMedia(),
-              text2(),
-            ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: 30,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                header(),
+                emailInput(),
+                passwordInput(),
+                button(),
+                text1(),
+                loginSocialMedia(),
+                text2(),
+              ],
+            ),
           ),
         ),
       ),

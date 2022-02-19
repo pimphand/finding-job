@@ -360,23 +360,25 @@ class Register extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xFFFBFBFB),
       resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            horizontal: 30,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              header(),
-              userName(),
-              emailInput(),
-              passwordInput(),
-              button(),
-              text1(),
-              RegisterSocialMedia(),
-              text2(),
-            ],
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            margin: EdgeInsets.symmetric(
+              horizontal: 30,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                header(),
+                userName(),
+                emailInput(),
+                passwordInput(),
+                button(),
+                text1(),
+                RegisterSocialMedia(),
+                text2(),
+              ],
+            ),
           ),
         ),
       ),
